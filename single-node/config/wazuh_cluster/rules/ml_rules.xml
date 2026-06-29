@@ -1,0 +1,27 @@
+<group name="ml_anomaly,">
+
+  <rule id="110001" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="model">\.+</field>
+    <description>ML anomaly detection log</description>
+  </rule>
+
+  <rule id="110002" level="12">
+    <if_sid>110001</if_sid>
+    <field name="model">Isolation Forest</field>
+    <description>Anomaly detected by Isolation Forest</description>
+  </rule>
+
+  <rule id="110003" level="12">
+    <if_sid>110001</if_sid>
+    <field name="model">Autoencoder</field>
+    <description>Anomaly detected by Autoencoder</description>
+  </rule>
+
+  <rule id="110004" level="15">
+    <if_sid>110001</if_sid>
+    <field name="model">Ensemble</field>
+    <description>High confidence anomaly - Ensemble detection</description>
+  </rule>
+
+</group>
